@@ -1,0 +1,31 @@
+{
+  "name": "gsap-promise",
+  "version": "1.0.0",
+  "description": "a Promise wrapper around gsap / twenelite",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Matt DesLauriers",
+    "email": "dave.des@gmail.com",
+    "url": "https://github.com/mattdesl"
+  },
+  "dependencies": {
+    "bluebird": "^2.3.5",
+    "gsap": "^1.13.2"
+  },
+  "devDependencies": {
+    "tape": "^3.0.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/gsap-promise.git"
+  },
+  "homepage": "https://github.com/mattdesl/gsap-promise",
+  "bugs": {
+    "url": "https://github.com/mattdesl/gsap-promise/issues"
+  }
+}
