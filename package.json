@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "bluebird": "^2.3.6",
-    "gsap": "^1.13.2"
+    "gsap": "^1.14.1"
   },
   "devDependencies": {
     "tape": "^3.0.0"
