@@ -30,5 +30,7 @@ module.exports = function(Promise) {
 			TweenMax.fromTo(element, duration, from, to)
 		})
 	}
+
+	util.all = Promise.all
 	return util	
 }
