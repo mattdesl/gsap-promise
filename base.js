@@ -31,6 +31,22 @@ module.exports = function(Promise) {
 		})
 	}
 
+	;['staggerTo', 'staggerFrom'].forEach(function(fn) {
+		var tweenFunc = TweenMax[fn]
+		util[fn] = function(element, duration, to, stagger, position) {
+			return new Promise(function(resolve, reject) {
+				tweenFunc(element, duration, from, to, stagger, position, resolve)
+			})
+		}
+	})
+
+	util.staggerFromTo = function staggerFromTo(element, duration, from, to, stagger, position) {
+		return new Promise(function(resolve, reject) {
+			TweenMax.staggerFromTo(element, duration, from, to, stagger, position, resolve)
+		})
+	}
+
+
 	util.all = Promise.all
 	return util	
 }
