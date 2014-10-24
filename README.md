@@ -27,9 +27,9 @@ This promisifies the `TweenMax` methods: `to`, `from`, `set` and `fromTo`.
 #### ```animate.from(element, duration, from)```
 #### ```animate.set(element, params)```
 #### ```animate.fromTo(element, duration, from, to)```
-#### ```animate.staggerFromTo(element, duration, from, to, stagger, position)```
-#### ```animate.staggerFrom(element, duration, from, stagger, position)```
-#### ```animate.staggerTo(element, duration, to, stagger, position)```
+#### ```animate.staggerFromTo(element, duration, from, to, stagger)```
+#### ```animate.staggerFrom(element, duration, from, stagger)```
+#### ```animate.staggerTo(element, duration, to, stagger)```
 
 Matches the TweenMax methods by the same name, but returns a Promise for the onComplete event. 
 
