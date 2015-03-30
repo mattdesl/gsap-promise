@@ -10,7 +10,7 @@ module.exports = function(Promise) {
 		}).cancellable().catch(Promise.CancellationError, function(e) {
 				tween.kill()
 				throw e
-		});
+		})
 	}
 
 	var animateTo = animateFunc.bind(null, TweenMax.to)
@@ -36,7 +36,7 @@ module.exports = function(Promise) {
 		}).cancellable().catch(Promise.CancellationError, function(e) {
 				tween.kill()
 				throw e
-		});
+		})
 	}
 
 	;['staggerTo', 'staggerFrom'].forEach(function(fn) {
@@ -46,9 +46,9 @@ module.exports = function(Promise) {
 			return new Promise(function(resolve, reject) {
 				tweens = tweenFunc(element, duration, from, stagger, resolve)
 			}).cancellable().catch(Promise.CancellationError, function(e) {
-				tweens.forEach( function (tween) { tween.kill() });
+				tweens.forEach( function (tween) { tween.kill() })
 				throw e
-			});
+			})
 		}
 	})
 
@@ -57,9 +57,9 @@ module.exports = function(Promise) {
 		return new Promise(function(resolve, reject) {
 			tweens = TweenMax.staggerFromTo(element, duration, from, to, stagger, resolve)
 		}).cancellable().catch(Promise.CancellationError, function(e) {
-			tweens.forEach( function (tween) { tween.kill() });
+			tweens.forEach( function (tween) { tween.kill() })
 			throw e
-		});
+		})
 	}
 
 
