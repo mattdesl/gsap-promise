@@ -28,9 +28,6 @@ test('a Promise wrapper around gsap / twenelite', function(t) {
 		.fromTo(d, 0.5, { value: 0 }, { value: 100 })
 		.delay(100)
 		.cancel()
-		.catch(function (e) {
-			console.log('fromTo canceled');
-		})
 		.delay(500)
 		.then(function () {
 			t.assert(d.value < 100, 'fromTo cancelling works')
@@ -41,9 +38,6 @@ test('a Promise wrapper around gsap / twenelite', function(t) {
 		.staggerFrom(e, 0.5, { value: 0 }, 0.1)
 		.delay(100)
 		.cancel()
-		.catch(function (e) {
-			console.log('staggerFrom canceled')
-		})
 		.delay(1000)
 		.then(function () {
 			t.assert(e.slice(-1)[0].value < 100, 'staggerFrom cancelling works')
@@ -53,9 +47,6 @@ test('a Promise wrapper around gsap / twenelite', function(t) {
 		.staggerFromTo(e, 0.5, { value: 0 }, { value: 100 }, 0.1)
 		.delay(100)
 		.cancel()
-		.catch(function (e) {
-			console.log('staggerFromTo canceled')
-		})
 		.delay(1000)
 		.then(function () {
 			t.assert(e.slice(-1)[0].value < 100, 'staggerFromTo cancelling works')

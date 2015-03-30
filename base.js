@@ -9,7 +9,6 @@ module.exports = function(Promise) {
 			tween = func(element, duration, opts)
 		}).cancellable().catch(Promise.CancellationError, function(e) {
 				tween.kill()
-				throw e
 		})
 	}
 
@@ -35,7 +34,6 @@ module.exports = function(Promise) {
 			tween = TweenMax.fromTo(element, duration, from, to)
 		}).cancellable().catch(Promise.CancellationError, function(e) {
 				tween.kill()
-				throw e
 		})
 	}
 
@@ -47,7 +45,6 @@ module.exports = function(Promise) {
 				tweens = tweenFunc(element, duration, from, stagger, resolve)
 			}).cancellable().catch(Promise.CancellationError, function(e) {
 				tweens.forEach( function (tween) { tween.kill() })
-				throw e
 			})
 		}
 	})
@@ -58,7 +55,6 @@ module.exports = function(Promise) {
 			tweens = TweenMax.staggerFromTo(element, duration, from, to, stagger, resolve)
 		}).cancellable().catch(Promise.CancellationError, function(e) {
 			tweens.forEach( function (tween) { tween.kill() })
-			throw e
 		})
 	}
 
