@@ -60,5 +60,5 @@ module.exports = function(Promise) {
 
 
 	util.all = Promise.all
-	return util	
+	return util
 }

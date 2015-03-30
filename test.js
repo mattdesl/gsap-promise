@@ -2,7 +2,7 @@ var animate = require('./')
 var test = require('tape').test
 
 test('a Promise wrapper around gsap / twenelite', function(t) {
-    t.plan(7)
+	t.plan(7)
 
 	t.equal(animate, animate.to, 'animate equals animate.to')
 
