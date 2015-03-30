@@ -3,10 +3,14 @@ var TweenMax = require('gsap')
 module.exports = function(Promise) {
 	function animateFunc(func, element, duration, opts) {
 		opts = opts||{}
+		var tween
 		return new Promise(function(resolve, reject) {
 			opts.onComplete = resolve
-			func(element, duration, opts)
-		})
+			tween = func(element, duration, opts)
+		}).cancellable().catch(Promise.CancellationError, function(e) {
+				tween.kill()
+				throw e
+		});
 	}
 
 	var animateTo = animateFunc.bind(null, TweenMax.to)
@@ -25,25 +29,37 @@ module.exports = function(Promise) {
 
 	util.fromTo = function animateFromTo(element, duration, from, to) {
 		to = to||{}
+		var tween
 		return new Promise(function(resolve, reject) {
 			to.onComplete = resolve
-			TweenMax.fromTo(element, duration, from, to)
-		})
+			tween = TweenMax.fromTo(element, duration, from, to)
+		}).cancellable().catch(Promise.CancellationError, function(e) {
+				tween.kill()
+				throw e
+		});
 	}
 
 	;['staggerTo', 'staggerFrom'].forEach(function(fn) {
 		var tweenFunc = TweenMax[fn]
+		var tweens
 		util[fn] = function(element, duration, from, stagger) {
 			return new Promise(function(resolve, reject) {
-				tweenFunc(element, duration, from, stagger, resolve)
-			})
+				tweens = tweenFunc(element, duration, from, stagger, resolve)
+			}).cancellable().catch(Promise.CancellationError, function(e) {
+				tweens.forEach( function (tween) { tween.kill() });
+				throw e
+			});
 		}
 	})
 
 	util.staggerFromTo = function staggerFromTo(element, duration, from, to, stagger, position) {
+		var tweens
 		return new Promise(function(resolve, reject) {
-			TweenMax.staggerFromTo(element, duration, from, to, stagger, resolve)
-		})
+			tweens = TweenMax.staggerFromTo(element, duration, from, to, stagger, resolve)
+		}).cancellable().catch(Promise.CancellationError, function(e) {
+			tweens.forEach( function (tween) { tween.kill() });
+			throw e
+		});
 	}
 
 

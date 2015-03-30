@@ -2,7 +2,7 @@ var animate = require('./')
 var test = require('tape').test
 
 test('a Promise wrapper around gsap / twenelite', function(t) {
-    t.plan(4)
+    t.plan(7)
 
 	t.equal(animate, animate.to, 'animate equals animate.to')
 
@@ -22,5 +22,43 @@ test('a Promise wrapper around gsap / twenelite', function(t) {
 	animate.fromTo(c, 1.0, { value: 0 }, { value: 5 }).then(function() {
 		t.equal(c.value, 5, 'animate.fromTo works')
 	})
+
+	var d = {value: 0};
+	animate
+		.fromTo(d, 0.5, { value: 0 }, { value: 100 })
+		.delay(100)
+		.cancel()
+		.catch(function (e) {
+			console.log('fromTo canceled');
+		})
+		.delay(500)
+		.then(function () {
+			t.assert(d.value < 100, 'fromTo cancelling works')
+		})
+
+	var e = [{value: 100}, {value: 100}, {value: 100}]
+	animate
+		.staggerFrom(e, 0.5, { value: 0 }, 0.1)
+		.delay(100)
+		.cancel()
+		.catch(function (e) {
+			console.log('staggerFrom canceled')
+		})
+		.delay(1000)
+		.then(function () {
+			t.assert(e.slice(-1)[0].value < 100, 'staggerFrom cancelling works')
+		})
+
+	animate
+		.staggerFromTo(e, 0.5, { value: 0 }, { value: 100 }, 0.1)
+		.delay(100)
+		.cancel()
+		.catch(function (e) {
+			console.log('staggerFromTo canceled')
+		})
+		.delay(1000)
+		.then(function () {
+			t.assert(e.slice(-1)[0].value < 100, 'staggerFromTo cancelling works')
+		})
 
 })
