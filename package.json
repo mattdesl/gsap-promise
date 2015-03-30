@@ -18,10 +18,10 @@
     "faucet": "0.0.1",
     "smokestack": "^3.2.1",
     "tap-closer": "^1.0.0",
-    "tape": "^3.0.0"
+    "tape": "^3.5.0"
   },
   "scripts": {
-    "test": "browserify test.js | smokestack | tap-closer | faucet"
+    "test": "browserify test.js | tap-closer | smokestack | faucet"
   },
   "keywords": [],
   "repository": {
