@@ -1,6 +1,6 @@
 {
   "name": "gsap-promise",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "a Promise wrapper around gsap / twenelite",
   "main": "index.js",
   "license": "MIT",
