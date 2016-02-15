@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "bluebird": "^2.9.21",
-    "gsap": "1.17.0"
+    "gsap": "1.18.2"
   },
   "devDependencies": {
     "browserify": "^9.0.3",
