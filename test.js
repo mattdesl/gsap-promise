@@ -2,7 +2,7 @@ var animate = require('./')
 var test = require('tape').test
 
 test('a Promise wrapper around gsap / twenelite', function(t) {
-	t.plan(7)
+	t.plan(8)
 
 	t.equal(animate, animate.to, 'animate equals animate.to')
 
@@ -51,5 +51,25 @@ test('a Promise wrapper around gsap / twenelite', function(t) {
 		.then(function () {
 			t.assert(e.slice(-1)[0].value < 100, 'staggerFromTo cancelling works')
 		})
+
+	var f = [{value: 0}, {value: 0}, {value: 0}, {value: 0}, {value: 0}, {value: 0}];
+	var to = {value: 100};
+	var timeout = setTimeout(function () {
+		t.fail('not all promises resolved, are arguments being mutated?')
+	}, 800)
+	Promise.all([
+		animate.set(f[0], to),
+		animate.set(f[1], to),
+		animate.to(f[2], 0.5, to),
+		animate.to(f[3], 0.5, to),
+		animate.fromTo(f[4], 0.5, {value: 0}, to),
+		animate.fromTo(f[5], 0.5, {value: 0}, to)
+	]).then(function () {
+		clearTimeout(timeout)
+
+		t.assert(f.every(function (item) {
+			return item.value === to.value
+		}), 'all promises resolved')
+	})
 
 })
