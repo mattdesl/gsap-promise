@@ -1,8 +1,9 @@
 var TweenMax = require('gsap')
+var assign = require('object-assign')
 
 module.exports = function(Promise) {
 	function animateFunc(func, element, duration, opts) {
-		opts = opts||{}
+		opts = assign({}, opts)
 		var tween
 		return new Promise(function(resolve, reject) {
 			opts.onComplete = resolve
@@ -19,7 +20,7 @@ module.exports = function(Promise) {
 	util.from = animateFunc.bind(null, TweenMax.from)
 	
 	util.set = function animateSet(element, params) {
-		params = params||{}
+		params = assign({}, params)
 		return new Promise(function(resolve, reject) {
 			params.onComplete = resolve
 			TweenMax.set(element, params)
@@ -27,7 +28,7 @@ module.exports = function(Promise) {
 	}
 
 	util.fromTo = function animateFromTo(element, duration, from, to) {
-		to = to||{}
+		to = assign({}, to)
 		var tween
 		return new Promise(function(resolve, reject) {
 			to.onComplete = resolve
