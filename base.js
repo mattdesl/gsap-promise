@@ -4,7 +4,7 @@ var assign = require('object-assign')
 module.exports = function(Promise) {
 
 	Promise.config({
-	    cancellation: true
+		cancellation: true
 	})
 
 	function animateFunc(func, element, duration, opts) {
