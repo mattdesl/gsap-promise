@@ -30,10 +30,10 @@ test('a Promise wrapper around gsap / twenelite', function(t) {
 
 		var d = {value: 0};
 		var promise = animate
-												.fromTo(d, 1, { value: 0 }, { value: 100 })
-												.finally(function () {
-													st.assert(d.value < 100, 'fromTo cancelling works')
-												});
+			.fromTo(d, 1, { value: 0 }, { value: 100 })
+			.finally(function () {
+				st.assert(d.value < 100, 'fromTo cancelling works')
+			});
 
 		setTimeout(function(){
 			promise.cancel()
@@ -45,10 +45,10 @@ test('a Promise wrapper around gsap / twenelite', function(t) {
 
 		var e = [{value: 100}, {value: 100}, {value: 100}]
 		var promise = animate
-												.staggerFrom(e, 1, { value: 0 }, 0.1)
-												.finally(function () {
-													st.assert(e.slice(-1)[0].value < 100, 'staggerFrom cancelling works')
-												});
+			.staggerFrom(e, 1, { value: 0 }, 0.1)
+			.finally(function () {
+				st.assert(e.slice(-1)[0].value < 100, 'staggerFrom cancelling works')
+			});
 
 		setTimeout(function(){
 			promise.cancel()
@@ -60,10 +60,10 @@ test('a Promise wrapper around gsap / twenelite', function(t) {
 
 		var e = [{value: 100}, {value: 100}, {value: 100}]
 		var promise = animate
-												.staggerFromTo(e, 1, { value: 0 }, { value: 100 }, 0.1)
-												.finally(function () {
-													st.assert(e.slice(-1)[0].value < 100, 'staggerFromTo cancelling works')
-												});
+			.staggerFromTo(e, 1, { value: 0 }, { value: 100 }, 0.1)
+			.finally(function () {
+				st.assert(e.slice(-1)[0].value < 100, 'staggerFromTo cancelling works')
+			});
 
 		setTimeout(function(){
 			promise.cancel()
