@@ -36,6 +36,15 @@ An alias for `Promise.all`, which will trigger all tweens in parallel.
 
 The default export is the same as `animate.to`.
 
+## Add extras
+
+If you want to use the greensock easing for example or the CSSPlugin to animate CSS properties, you can add those separately, the goal of this is being the lightest posible.
+
+```
+require('gsap/src/uncompressed/easing/EasePack');
+require('gsap/src/uncompressed/plugins/CSSPlugin');
+```
+
 ## License
 
 MIT, see [LICENSE.md](http://github.com/iranreyes/gsap-lite-promise/blob/master/LICENSE.md) for details.
