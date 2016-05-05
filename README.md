@@ -1,8 +1,8 @@
-# gsap-promise
+# gsap-lite-promise
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-A Promise wrapper around gsap / tweenlite. 
+A Promise wrapper around gsap / tweenlite, based on the npm package gsap-promise created by Matt DesLauriers that use TweenMax
 
 ```js
 var animate = require('gsap-promise')
@@ -17,19 +17,16 @@ Promise.all([
 
 ## Usage
 
-[![NPM](https://nodei.co/npm/gsap-promise.png)](https://nodei.co/npm/gsap-promise/)
+[![NPM](https://nodei.co/npm/gsap-lite-promise.png)](https://nodei.co/npm/gsap-lite-promise/)
 
-This promisifies the `TweenMax` methods: `to`, `from`, `set` and `fromTo`. This uses Bluebird, and has basic support for cancellation. 
+This promisifies the `TweenLite` methods: `to`, `from`, `set` and `fromTo`. This uses Bluebird, and has basic support for cancellation.
 
 #### ```animate.to(element, duration, params)```
 #### ```animate.from(element, duration, from)```
 #### ```animate.set(element, params)```
 #### ```animate.fromTo(element, duration, from, to)```
-#### ```animate.staggerFromTo(element, duration, from, to, stagger)```
-#### ```animate.staggerFrom(element, duration, from, stagger)```
-#### ```animate.staggerTo(element, duration, to, stagger)```
 
-Matches the TweenMax methods by the same name, but returns a Promise for the onComplete event. 
+Matches the TweenLite methods by the same name, but returns a Promise for the onComplete event.
 
 #### ```animate.all(element)```
 
@@ -41,4 +38,4 @@ The default export is the same as `animate.to`.
 
 ## License
 
-MIT, see [LICENSE.md](http://github.com/mattdesl/gsap-promise/blob/master/LICENSE.md) for details.
+MIT, see [LICENSE.md](http://github.com/iranreyes/gsap-lite-promise/blob/master/LICENSE.md) for details.

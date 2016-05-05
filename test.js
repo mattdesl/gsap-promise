@@ -38,36 +38,6 @@ test('a Promise wrapper around gsap / twenelite', function(t) {
     }, 200)
   })
 
-  t.test('StaggerFrom tests', function(st){
-    st.plan(1)
-
-    var e = [{value: 100}, {value: 100}, {value: 100}]
-    var promise = animate
-                        .staggerFrom(e, 1, {value: 0}, 0.1)
-                        .finally(function () {
-                          st.assert(e.slice(-1)[0].value < 100, 'staggerFrom cancelling works')
-                        })
-
-    setTimeout(function(){
-      promise.cancel()
-    }, 200)
-  })
-
-  t.test('Stagger FromTo tests', function(st){
-    st.plan(1)
-
-    var e = [{value: 100}, {value: 100}, {value: 100}]
-    var promise = animate
-                        .staggerFromTo(e, 1, {value: 0}, {value: 100}, 0.1)
-                        .finally(function () {
-                          st.assert(e.slice(-1)[0].value < 100, 'staggerFromTo cancelling works')
-                        })
-
-    setTimeout(function(){
-      promise.cancel()
-    }, 200)
-  })
-
   t.test('Promise all', function(st){
     st.plan(1)
 
