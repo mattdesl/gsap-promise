@@ -1,17 +1,17 @@
 {
-  "name": "gsap-promise",
-  "version": "1.4.3",
-  "description": "a Promise wrapper around gsap / tweenlite",
+  "name": "gsap-lite-promise",
+  "version": "1.0.0",
+  "description": "A Promise wrapper around gsap/tweenlite",
   "main": "index.js",
   "license": "MIT",
   "author": {
-    "name": "Matt DesLauriers",
-    "email": "dave.des@gmail.com",
-    "url": "https://github.com/mattdesl"
+    "name": "Iran Reyes",
+    "email": "iranreyesfleitas@gmail.com",
+    "url": "https://github.com/iranreyes"
   },
   "dependencies": {
     "bluebird": "^3.3.4",
-    "gsap": "1.18.2",
+    "gsap": "1.18.4",
     "object-assign": "^4.0.1"
   },
   "devDependencies": {
@@ -27,10 +27,10 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git://github.com/mattdesl/gsap-promise.git"
+    "url": "git://github.com/iranreyes/gsap-lite-promise.git"
   },
-  "homepage": "https://github.com/mattdesl/gsap-promise",
+  "homepage": "https://github.com/iranreyes/gsap-lite-promise",
   "bugs": {
-    "url": "https://github.com/mattdesl/gsap-promise/issues"
+    "url": "https://github.com/iranreyes/gsap-lite-promise/issues"
   }
 }
