@@ -2,24 +2,30 @@
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-A Promise wrapper around gsap / tweenlite, based on the npm package gsap-promise created by Matt DesLauriers that use TweenMax
+A Promise wrapper around gsap / tweenlite, based on the npm package gsap-promise created by Matt DesLauriers that use TweenMax.
 
 ```js
-var animate = require('gsap-promise')
+var Promise = Promise || require('bluebird');
+var animate = require('gsap-lite-promise')(Promise);
 
 Promise.all([
 	animate(element, 1.0, { x: 10 }),
 	animate(element, 1.0, { y: 10, delay: 0.5 })
 ]).then(function() {
 	console.log("all animations finished")
-})
+});
 ```
+
+## Changelog
+
+*2.0.0*
+Was removed Bluebird like strict dependency so in order to use it you should pass your prefer Promise implementation to the lib.
 
 ## Usage
 
 [![NPM](https://nodei.co/npm/gsap-lite-promise.png)](https://nodei.co/npm/gsap-lite-promise/)
 
-This promisifies the `TweenLite` methods: `to`, `from`, `set` and `fromTo`. This uses Bluebird, and has basic support for cancellation.
+This promisifies the `TweenLite` methods: `to`, `from`, `set` and `fromTo`.
 
 #### ```animate.to(element, duration, params)```
 #### ```animate.from(element, duration, from)```

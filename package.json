@@ -10,12 +10,12 @@
     "url": "https://github.com/iranreyes"
   },
   "dependencies": {
-    "bluebird": "^3.3.4",
     "gsap": "1.18.4",
     "object-assign": "^4.0.1"
   },
   "devDependencies": {
     "browserify": "^9.0.3",
+    "bluebird": "^3.3.4",
     "faucet": "0.0.1",
     "smokestack": "^3.2.1",
     "tap-closer": "^1.0.0",

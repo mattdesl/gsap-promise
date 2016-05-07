@@ -2,11 +2,6 @@ var TweenLite = require('gsap/src/uncompressed/TweenLite');
 var assign = require('object-assign')
 
 module.exports = function(Promise) {
-
-  Promise.config({
-      cancellation: true
-  })
-
   function animateFunc(func, element, duration, opts) {
     opts = assign({}, opts)
     var tween

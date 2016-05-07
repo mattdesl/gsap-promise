@@ -1,4 +1,6 @@
-var animate = require('./')
+var Promise = require('bluebird');
+
+var animate = require('./')(Promise);
 var test = require('tape').test
 
 test('a Promise wrapper around gsap / twenelite', function(t) {
@@ -21,21 +23,6 @@ test('a Promise wrapper around gsap / twenelite', function(t) {
     animate.fromTo(c, 1.0, {value: 0}, {value: 5}).then(function() {
       st.equal(c.value, 5, 'animate.fromTo works')
     })
-  })
-
-  t.test('From to tests', function(st){
-    st.plan(1)
-
-    var d = {value: 0}
-    var promise = animate
-                        .fromTo(d, 1, {value: 0}, {value: 100})
-                        .finally(function () {
-                          st.assert(d.value < 100, 'fromTo cancelling works')
-                        })
-
-    setTimeout(function(){
-      promise.cancel()
-    }, 200)
   })
 
   t.test('Promise all', function(st){
