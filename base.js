@@ -1,4 +1,4 @@
-var TweenLite = require('gsap/src/uncompressed/TweenLite');
+require('gsap/src/uncompressed/TweenLite');
 var assign = require('object-assign')
 
 module.exports = function(Promise) {
