@@ -1,1 +1,1 @@
-module.exports = require('./base')(require('bluebird'))
+module.exports = require('./base')(require('cancelable-promise').default)
