@@ -10,7 +10,7 @@
     "url": "https://github.com/mattdesl"
   },
   "dependencies": {
-    "bluebird": "^3.3.4",
+    "cancelable-promise": "^2.3.0",
     "gsap": "1.18.2",
     "object-assign": "^4.0.1"
   },
