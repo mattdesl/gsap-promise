@@ -40,6 +40,8 @@ module.exports = function(Promise) {
     })
   }
 
-  util.all = Promise.all
+  util.killTweensOf = TweenLite.killTweensOf.bind(TweenLite);
+  util.all = Promise.all;
+  util.TweenLite = TweenLite;
   return util
 }
