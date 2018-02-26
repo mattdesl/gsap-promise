@@ -1,8 +1,6 @@
-require('gsap/src/uncompressed/plugins/CSSPlugin.js');
-require('gsap/src/uncompressed/TweenLite.js');
 var assign = require('object-assign');
 
-module.exports = function(Promise) {
+module.exports = function(Promise, TweenModule) {
   function animateFunc(func, element, duration, opts) {
     opts = assign({}, opts);
     var tween;
@@ -16,17 +14,17 @@ module.exports = function(Promise) {
     });
   }
 
-  var animateTo = animateFunc.bind(null, TweenLite.to);
+  var animateTo = animateFunc.bind(null, TweenModule.to);
 
   var util = animateTo;
   util.to = animateTo;
-  util.from = animateFunc.bind(null, TweenLite.from);
+  util.from = animateFunc.bind(null, TweenModule.from);
 
   util.set = function animateSet(element, params) {
     params = assign({}, params);
     return new Promise(function(resolve, reject) {
       params.onComplete = resolve;
-      TweenLite.set(element, params);
+      TweenModule.set(element, params);
     });
   };
 
@@ -35,7 +33,7 @@ module.exports = function(Promise) {
     var tween;
     return new Promise(function(resolve, reject, onCancel) {
       to.onComplete = resolve;
-      tween = TweenLite.fromTo(element, duration, from, to);
+      tween = TweenModule.fromTo(element, duration, from, to);
       onCancel &&
         onCancel(function() {
           tween.kill();
@@ -43,8 +41,6 @@ module.exports = function(Promise) {
     });
   };
 
-  util.killTweensOf = TweenLite.killTweensOf.bind(TweenLite);
   util.all = Promise.all;
-  util.TweenLite = TweenLite;
   return util;
 };
