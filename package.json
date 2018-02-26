@@ -2,7 +2,7 @@
   "name": "gsap-lite-promise",
   "version": "1.0.0",
   "description": "A Promise wrapper around gsap/tweenlite",
-  "main": "index.js",
+  "main": "build.js",
   "license": "MIT",
   "author": {
     "name": "Iran Reyes",
@@ -19,10 +19,12 @@
     "faucet": "0.0.1",
     "smokestack": "^3.2.1",
     "tap-closer": "1.0.0",
-    "tape": "^3.5.0"
+    "tape": "^3.5.0",
+    "webpack": "^4.0.0"
   },
   "scripts": {
-    "test": "browserify test.js | tap-closer | smokestack | faucet"
+    "test": "browserify test.js | tap-closer | smokestack | faucet",
+    "build": "webpack -p index.js -o build.js"
   },
   "keywords": [],
   "repository": {
